@@ -6,6 +6,11 @@ on:
       - '**/*.md'
       - '**/*.txt'
   workflow_dispatch:
+permissions:
+  checks: write
+  issues: read
+  pull-requests: write
+  contents: read
   
 jobs:
   build:
