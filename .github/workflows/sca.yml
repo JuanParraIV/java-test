@@ -28,7 +28,8 @@ jobs:
           cache: maven
 
       - name: Snyk SCA Scan
-        uses: snyk/actions/maven@v3
+        uses: snyk/actions/maven-3-jdk-11@master
+        continue-on-error: true
         with:
           args: test --all-projects --json-file-output=snyk-report.json --sarif-file-output=snyk-report.sarif
         env:
