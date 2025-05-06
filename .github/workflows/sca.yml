@@ -22,12 +22,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 11
           cache: maven
-
       - name: Install SCA tool (CRDA)
         uses: redhat-actions/openshift-tools-installer@v1
         with:
