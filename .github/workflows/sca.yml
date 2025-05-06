@@ -26,7 +26,9 @@ jobs:
           distribution: temurin
           java-version: 11
           cache: maven
-
+      
+      - name: Fix mvnw permissions
+        run: chmod +x ./mvnw
       - name: Snyk SCA Scan
         uses: snyk/actions/maven@master
         continue-on-error: true
@@ -35,7 +37,7 @@ jobs:
         with:
           args: --sarif-file-output=snyk.sarif
       - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v2.21.2
         with:
           sarif_file: snyk.sarif
 
